@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section><section id="the-polyadic-pi-calculus-a-tutorial" class="titleslide slide level1"><h1>The Polyadic Pi Calculus: A Tutorial</h1></section><section id="introduction---chapter-2.2" class="slide level2">
+<h2>Introduction - Chapter 2.2</h2>
+<ul>
+<li>Led by Jake Gillberg</li>
+<li>04 April 2018</li>
+<li><a href="https://pdfs.semanticscholar.org/5d25/0a3a14f68abb1ae0111d35b8220b4472b277.pdf">Milner’s Tutorial</a></li>
+<li><a href="https://youtu.be/WO8rGA8AjD0">Recording on youtube</a></li>
+<li>Converted from <a href="https://docs.google.com/presentation/d/1fCvPIcxLKx8igoMguqNJoO_k-7wuPdbwMskHZ8Dq-C0/edit#slide=id.g37915d267d_2_26">original slides</a></li>
+</ul>
+</section></section>
+<section><section id="introductions" class="titleslide slide level1"><h1>Introductions</h1></section><section id="section" class="slide level2">
+<h2></h2>
+<ul>
+<li>What is your background?</li>
+<li>What do you hope to get out of this session?</li>
+<li>What do you hope to get out of this collaborative learning group in general?</li>
+<li>What is the name of a person that you love a lot?</li>
+</ul>
+</section></section>
+<section><section id="pi-calc-is-a-way-to-describe-concurrent-computation" class="titleslide slide level1"><h1>Pi Calc is a way to describe… Concurrent computation</h1></section><section id="section-1" class="slide level2">
+<h2></h2>
+<blockquote>
+… Many agents active at once and can influence each other’s activity on the fly. We could treat these agents as lambda calc’s “functional computers” receiving arguments and producing results.
+</blockquote>
+<p>Based on the notion of naming.</p>
+</section><section id="section-2" class="slide level2">
+<h2></h2>
+<blockquote>
+A way of describing and analyzing systems consisting of agents which interact among each other, and whose configurations or neighborhood is continually changing
+</blockquote>
+</section><section id="section-3" class="slide level2">
+<h2></h2>
+<blockquote>
+Naming strongly presupposes independence. It is natural to assume that the namer and the named are co-existing (concurrent) entities.
+</blockquote>
+<blockquote>
+Naming is inextricably confused with the act of communication.
+</blockquote>
+<blockquote>
+Naming is used to locate and modify data.
+</blockquote>
+</section><section id="section-4" class="slide level2">
+<h2></h2>
+<blockquote>
+Treat data-access and communication as te same thing.
+</blockquote>
+(data is a special kind of process. This is taken further with the rho calculus.)
+</blockquote>
+<blockquote>
+Name channels, not entities.
+</blockquote>
+</section></section>
+<section><section id="the-monadic-pi-calculus" class="titleslide slide level1"><h1>The Monadic Pi Calculus</h1></section><section id="names-and-processes" class="slide level2">
+<h2>Names and Processes</h2>
+<p>Names: usually presented as lowercase letters like <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">x, y, z</annotation></semantics></math>. They are the base elements of this calculus, there is no way to construct them, they just exist</p>
+<!-- These dots insert a pause -->
+<div class="fragment">
+<p>Processes: usually presented as uppercase letters like <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>,</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P, Q</annotation></semantics></math>. Processes that are not (structurally congruent to) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>∅</mi><annotation encoding="application/x-tex">\emptyset</annotation></semantics></math> (the empty, stopped, or “do nothing” process) have to be constructed using operations (atomic actions / prefixes) involving names.</p>
+</div>
+</section><section id="prefixes-atomic-actions-pi" class="slide level2">
+<h2>Prefixes / Atomic Actions <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math></h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">¯</mo></mover><mi>y</mi></mrow><annotation encoding="application/x-tex">\overline{x}y</annotation></semantics></math> Output the channel / name / link name <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x(z)</annotation></semantics></math> Input some name from the channel / name / link <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> – call it <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math></li>
+<li>Every process starts its life as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>∅</mi><annotation encoding="application/x-tex">\emptyset</annotation></semantics></math>, and grows by adding prefixes.</li>
+</ul>
+</section><section id="normal-processes" class="slide level2">
+<h2>Normal Processes</h2>
+<p>Usually presented as uppercase letters like <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math></p>
+<p>Ways to construct normal processes</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:</mo><mo>:=</mo><mi>∅</mi></mrow><annotation encoding="application/x-tex">M ::= \emptyset</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:</mo><mo>:=</mo><mi>π</mi><mi>.</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">M ::= \pi.P</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:</mo><mo>:=</mo><mi>N</mi><mo>+</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">M ::= N + L</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>:</mo><mo>:=</mo><msub><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>N</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">M ::= \sum_{i \in I} N_i</annotation></semantics></math></li>
+</ul>
+</section><section id="not-normal-keep-pi-calc-weird-processes" class="slide level2">
+<h2>Not Normal (Keep Pi Calc Weird) Processes</h2>
+<p>Ways to construct non-normal processes</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">|</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P | Q</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>!</mi><mi>P</mi><mo>→</mo><mi>P</mi><mo stretchy="false" form="prefix">|</mo><mi>P</mi><mo stretchy="false" form="prefix">|</mo><mi>⋯</mi><mo stretchy="false" form="prefix">|</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">!P \rightarrow P | P | \cdots | P</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">(\nu x)P</annotation></semantics></math></li>
+</ul>
+</section></section>
+<section><section id="examples-from-section-2.2" class="titleslide slide level1"><h1>Examples (from section 2.2)</h1></section><section id="example-1" class="slide level2">
+<h2>Example 1</h2>
+</section><section id="example-2" class="slide level2">
+<h2>Example 2</h2>
+</section></section>
+<section><section id="am-i-a-process" class="titleslide slide level1"><h1>Am I a process?</h1></section><section id="yes-or-no-normal-or-not" class="slide level2">
+<h2>Yes or No? Normal or not?</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">¯</mo></mover><mi>y</mi><mi>.</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">\overline{x}y.P</annotation></semantics></math> . . .</li>
+<li>Process</li>
+<li>Normal</li>
+</ul>
+</section><section id="yes-or-no-normal-or-not-1" class="slide level2">
+<h2>Yes or No? Normal or not?</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>!</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">!N</annotation></semantics></math> . . .</li>
+<li>Process</li>
+<li>Not Normal</li>
+</ul>
+</section><section id="yes-or-no-normal-or-not-2" class="slide level2">
+<h2>Yes or No? Normal or not?</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>+</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">P + N</annotation></semantics></math> . . .</li>
+<li>Not a process</li>
+<li>Can’t “sum” non-normal processes</li>
+</ul>
+</section><section id="yes-or-no-normal-or-not-3" class="slide level2">
+<h2>Yes or No? Normal or not?</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">|</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">N | M</annotation></semantics></math></li>
+<li>Process</li>
+<li>Not normal</li>
+</ul>
+</section><section id="yes-or-no-normal-or-not-4" class="slide level2">
+<h2>Yes or No? Normal or not?</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo stretchy="false" form="prefix">|</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">N | P</annotation></semantics></math> . . .</li>
+<li>Process</li>
+<li>Not normal</li>
+</ul>
+</section><section id="expert-level" class="slide level2">
+<h2>Expert level</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>!</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mi>P</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">!((\nu x) x(z).P) + N</annotation></semantics></math> . . .</li>
+<li>Not a process</li>
+<li>The first item in the sum is not normal</li>
+</ul>
+</section><section id="expert-level-1" class="slide level2">
+<h2>Expert level</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">¯</mo></mover><mi>y</mi><mi>.</mi><mi>!</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mi>P</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">\overline{x}y.!((\nu x) x(z).P) + N</annotation></semantics></math> . . .</li>
+<li>Process</li>
+<li>Normal</li>
+</ul>
+</section><section id="expert-level-2" class="slide level2">
+<h2>Expert level</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">¯</mo></mover><mi>y</mi><mi>.</mi><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mi>∅</mi><mo stretchy="false" form="prefix">|</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">\overline{x}y.(\nu x)x(z).\emptyset | N</annotation></semantics></math> . . .</li>
+<li>Process</li>
+<li>Not normal</li>
+</ul>
+</section><section id="expert-level-3" class="slide level2">
+<h2>Expert level</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">¯</mo></mover><mi>y</mi><mi>.</mi><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mo stretchy="false" form="prefix">(</mo><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mi>z</mi><mo stretchy="false" form="prefix">(</mo><mi>z</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mi>∅</mi><mo stretchy="false" form="prefix">|</mo><mi>N</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\overline{x}y.(\nu x)x(z).((\nu z)z(z).\emptyset | N)</annotation></semantics></math> . . .</li>
+<li>Process</li>
+<li>Normal</li>
+</ul>
+</section></section>
+<section><section id="in-summary" class="titleslide slide level1"><h1>In Summary</h1></section><section id="process-constructions" class="slide level2">
+<h2>Process constructions</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>:</mo><mo>:=</mo><msub><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>π</mi><mi>i</mi></msub><mi>.</mi><msub><mi>P</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">P::=\sum_{i \in I}\pi_i.P_i</annotation></semantics></math>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><mi>⌀</mi><mo>→</mo><mi>P</mi><mo>:</mo><mo>:=</mo><mi>∅</mi></mrow><annotation encoding="application/x-tex">I = \varnothing \rightarrow P::= \emptyset</annotation></semantics></math></li>
+</ul></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>:</mo><mo>:=</mo><mi>P</mi><mo stretchy="false" form="prefix">|</mo><mi>Q</mi></mrow><annotation encoding="application/x-tex">P::= P|Q</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>:</mo><mo>:=</mo><mi>!</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">P::= !P</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>:</mo><mo>:=</mo><mo stretchy="false" form="prefix">(</mo><mi>ν</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">P::= (\nu x) P</annotation></semantics></math></li>
+</ul>
+</section></section>
+<section><section id="after-the-session" class="titleslide slide level1"><h1>After the session</h1></section><section id="up-next-potentially" class="slide level2">
+<h2>Up next (potentially)</h2>
+<ul>
+<li>A more formal definition of behavior</li>
+<li>Things that we can prove about our programs</li>
+<li>Examples of programs that do things</li>
+</ul>
+</section><section id="explorations" class="slide level2">
+<h2>Explorations</h2>
+<ul>
+<li>Create more interesting “Am I a process, and if I am, am I normal?” questions</li>
+<li>Use <a href="https://github.com/glenbraun/JsonPi">JsonPi</a> to run / examine examples from section 2.2</li>
+<li>Create more interesting examples of Pi-Calc programs like the ones in section 2.2</li>
+<li>Find other process calculi / variants on the pi calculus, record the differences</li>
+<li>Learn the Lambda Calculus</li>
+<li>Start learning about language definition frameworks / languages: BNFC, KFramework</li>
+<li>Start learning about proof assistant frameworks: Coq, Isabelle</li>
+</ul>
+</section><section id="feedback" class="slide level2">
+<h2>Feedback</h2>
+<p>https://goo.gl/forms/ehT0jj4U3Wh4gA4l2</p>
+</section></section>
+<section><section id="kframework-pi-calc-definition" class="titleslide slide level1"><h1>KFramework Pi Calc definition</h1></section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
