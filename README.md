@@ -6,8 +6,9 @@ Jake Gillberg organized a collaborative learning group around the pi calculus in
 
 | Lesson | Date | Sections| Item |
 |---|---|---|---|
-| 1 | 04 April 2018 | 1.1 - 2.2 | [reveal slides](lesson1.html)|
 | 1 | 04 April 2018 | 1.1 - 2.2 | [session recording](https://youtu.be/WO8rGA8AjD0)|
+| 1 | 04 April 2018 | 1.1 - 2.2 | [google slides (used in the presentation)](https://docs.google.com/presentation/d/1fCvPIcxLKx8igoMguqNJoO_k-7wuPdbwMskHZ8Dq-C0/edit?usp=sharing)|
+| 1 | 04 April 2018 | 1.1 - 2.2 | [reveal slides (in effort to create easier to correct, collaborative slides)](lesson1.html)|
 
 # Repository
 Slides are written in markdown format and saved in files named like `lesson1.md` They are converted to reveal.js format via [pandoc](https://pandoc.org). There is significant room for improvement in visual presentation.
