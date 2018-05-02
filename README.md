@@ -22,8 +22,6 @@ Slides are written in markdown format and saved in files named like `lesson1.md`
 * `--output lesson1.html` specifies the output file name
 * `lesson1.md` is the input markdown file to be processed
 
-
-
 # Pandoc
 Some good references for how to use pandoc to make great slides.
 * http://benschmidt.org/2014/11/07/building-outlines-for-markdown-documents-with-pandoc/
@@ -32,3 +30,6 @@ Some good references for how to use pandoc to make great slides.
 
 ## Other supported formats
 TODO
+
+# License
+TODO: Choose a license
