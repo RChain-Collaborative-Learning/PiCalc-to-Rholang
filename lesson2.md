@@ -8,6 +8,8 @@
 # Last week we...
 
 # Defining a programming language
+
+##
 1. Grammar
 2. Equivalences
 3. Reductions
