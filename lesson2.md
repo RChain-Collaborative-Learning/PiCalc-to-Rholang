@@ -34,44 +34,56 @@
 
 ## What are the Free and Bound Names?
 
-## $x(y)$
+##
+$x(y)$
 
-## $x(y)$
+##
+$x(y)$
  * Free Names: x
  * Bound Names: y
 
-## $\overline{x}y$
+##
+$\overline{x}y$
 
-## $\overline{x}y$
+## 
+$\overline{x}y$
  * Free Names: x, y
  * Bound Names: None
 
-## $(\nu x)\overline{x}y$
+## 
+$(\nu x)\overline{x}y$
 
-## $(\nu x)\overline{x}y$
+## 
+$(\nu x)\overline{x}y$
  * Free Names: y
  * Bound Names: x
 
 # Equivalences
 
-## $(N/\equiv,+,\emptyset)$ is a symmetric monoid
+## 
+$(N/\equiv,+,\emptyset)$ is a symmetric monoid
  * $N+\emptyset \equiv N$
  * $N+M \equiv M+N$
  * $(L+M)+N \equiv L+(M+N)$
 
-## $(P/\equiv,|,\emptyset)$ is a symmetric monoid
+## 
+$(P/\equiv,|,\emptyset)$ is a symmetric monoid
  * $P|\emptyset \equiv P$
  * $P|Q \equiv Q|P$
  * $(P+Q)+S \equiv P+(Q+S)$
 
-## $!P \equiv P|!P$
-$!P$ signifies "infinite" concurrenty running copies of P, so adding another should not change the meaning of our program.
+## 
+$!P \equiv P|!P$
+ * $!P$ signifies "infinite" concurrenty running copies of P, so adding another should not change the meaning of our program.
 
-## $(\nu x)\emptyset \equiv \emptyset$
+## 
+$(\nu x)\emptyset \equiv \emptyset$
 
-## $(\nu x)(\nu y)P \equiv (\nu y)(\nu x)P$
+## 
+$(\nu x)(\nu y)P \equiv (\nu y)(\nu x)P$
 
-## If $x$ is not a free name in $P$ then $(\nu x)(P|Q) \equiv P|(\nu x)Q$
+##
+If $x$ is not a free name in $P$ then $(\nu x)(P|Q) \equiv P|(\nu x)Q$
 
 # Reuctions
 
