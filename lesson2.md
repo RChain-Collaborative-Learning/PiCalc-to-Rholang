@@ -39,6 +39,7 @@ $x(y)$
 
 ##
 $x(y)$
+
  * Free Names: x
  * Bound Names: y
 
@@ -47,6 +48,7 @@ $\overline{x}y$
 
 ## 
 $\overline{x}y$
+
  * Free Names: x, y
  * Bound Names: None
 
@@ -55,6 +57,7 @@ $(\nu x)\overline{x}y$
 
 ## 
 $(\nu x)\overline{x}y$
+
  * Free Names: y
  * Bound Names: x
 
@@ -62,18 +65,21 @@ $(\nu x)\overline{x}y$
 
 ## 
 $(N/\equiv,+,\emptyset)$ is a symmetric monoid
+
  * $N+\emptyset \equiv N$
  * $N+M \equiv M+N$
  * $(L+M)+N \equiv L+(M+N)$
 
 ## 
 $(P/\equiv,|,\emptyset)$ is a symmetric monoid
+
  * $P|\emptyset \equiv P$
  * $P|Q \equiv Q|P$
  * $(P+Q)+S \equiv P+(Q+S)$
 
 ## 
 $!P \equiv P|!P$
+
  * $!P$ signifies "infinite" concurrenty running copies of P, so adding another should not change the meaning of our program.
 
 ## 
