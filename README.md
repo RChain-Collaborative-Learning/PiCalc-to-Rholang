@@ -13,11 +13,10 @@ Jake Gillberg organized a collaborative learning group around the pi calculus in
 # Repository
 Slides are written in markdown format and saved in files named like `lesson1.md` They are converted to reveal.js format via [pandoc](https://pandoc.org). There is significant room for improvement in visual presentation.
 
-`pandoc --standalone --mathml --smart --to revealjs --slide-level 2 --output lesson1.html lesson1.md`
+`pandoc --standalone --katex --to revealjs --slide-level 2 --output lesson1.html lesson1.md`
 
 * `--standalone` generates a complete document including headers
-* `--mathml` renders latex equations using mathML
-* `--smart` renders en-dashes, em-dashes and some other stuff nicely
+* `--katex` renders latex equations using nicely
 * `--to revealjs` specifies the reveal.js output format. (Other formats may be supported later; see below)
 * `--slide-level 2` Uses second-level headings to create 2d slideshow in reveal.js
 * `--output lesson1.html` specifies the output file name
