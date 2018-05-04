@@ -111,17 +111,17 @@
 </section></section>
 <section><section id="equivalences-1" class="title-slide slide level1"><h1>Equivalences</h1></section><section id="section-8" class="slide level2">
 <h2></h2>
-<p><span class="math inline">\((N/\equiv,+,\emptyset)\)</span> is a symmetric monoid</p>
+<p><span class="math inline">\((N/\equiv,+,\varnothing)\)</span> is a symmetric monoid</p>
 <ul>
-<li><span class="math inline">\(N+\emptyset \equiv N\)</span></li>
+<li><span class="math inline">\(N+\varnothing \equiv N\)</span></li>
 <li><span class="math inline">\(N+M \equiv M+N\)</span></li>
 <li><span class="math inline">\((L+M)+N \equiv L+(M+N)\)</span></li>
 </ul>
 </section><section id="section-9" class="slide level2">
 <h2></h2>
-<p><span class="math inline">\((P/\equiv,|,\emptyset)\)</span> is a symmetric monoid</p>
+<p><span class="math inline">\((P/\equiv,|,\varnothing)\)</span> is a symmetric monoid</p>
 <ul>
-<li><span class="math inline">\(P|\emptyset \equiv P\)</span></li>
+<li><span class="math inline">\(P|\varnothing \equiv P\)</span></li>
 <li><span class="math inline">\(P|Q \equiv Q|P\)</span></li>
 <li><span class="math inline">\((P+Q)+S \equiv P+(Q+S)\)</span></li>
 </ul>
@@ -133,7 +133,7 @@
 </ul>
 </section><section id="section-11" class="slide level2">
 <h2></h2>
-<p><span class="math inline">\((\nu x)\emptyset \equiv \emptyset\)</span></p>
+<p><span class="math inline">\((\nu x)\varnothing \equiv \varnothing\)</span></p>
 </section><section id="section-12" class="slide level2">
 <h2></h2>
 <p><span class="math inline">\((\nu x)(\nu y)P \equiv (\nu y)(\nu x)P\)</span></p>
@@ -141,7 +141,7 @@
 <h2></h2>
 <p>If <span class="math inline">\(x\)</span> is not a free name in <span class="math inline">\(P\)</span> then <span class="math inline">\((\nu x)(P|Q) \equiv P|(\nu x)Q\)</span></p>
 </section></section>
-<section><section id="reuctions" class="title-slide slide level1"><h1>Reuctions</h1></section><section id="communication-comm-rule---the-only-reduction" class="slide level2">
+<section><section id="reductions-1" class="title-slide slide level1"><h1>Reductions</h1></section><section id="communication-comm-rule---the-only-reduction" class="slide level2">
 <h2>Communication (Comm) Rule - the only reduction</h2>
 <p><span class="math inline">\(\overline{x}z.Q | x(y).P \rightarrow P\{z/y\}|Q\)</span></p>
 </section></section>
@@ -169,7 +169,7 @@
 <h2>A naive attempt</h2>
 <p><span class="math inline">\(x(y).x(z).P | \overline{x}a.\overline{x}b | \overline{x}c.\overline{x}d\)</span></p>
 <p><span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(x(z).P\{a/y\} | \overline{x}b | \overline{x}c.\overline{x}.d\)</span></p>
-<p><span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(x(z).P\{a/y,c/z\} | \overline{x}b | \overline{x}d\)</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(P\{a/y,c/z\} | \overline{x}b | \overline{x}d\)</span></p>
 </section><section id="we-must-synchronize-on-another-name" class="slide level2">
 <h2>We must synchronize on another name!</h2>
 <ul>
@@ -194,7 +194,7 @@
 <ul>
 <li><span class="math inline">\(S = \cdots Tinder\_Match(alice, bob).P\)</span></li>
 <li><span class="math inline">\(\hat{S} = \cdots \overline{x}(alice, bob).P\)</span> where <span class="math inline">\(x\)</span> is not a name in <span class="math inline">\(S\)</span></li>
-<li><span class="math inline">\(S = (\nu x)(\hat{S} | !(x(y, z).(\overline{y}z | \overline{z}y)))\)</span></li>
+<li><span class="math inline">\(S = (\nu x)(!(x(y, z).(\overline{y}z | \overline{z}y)) | \hat{S})\)</span></li>
 </ul>
 </section></section>
     </div>

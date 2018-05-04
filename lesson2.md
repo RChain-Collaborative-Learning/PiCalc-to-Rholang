@@ -64,16 +64,16 @@ $(\nu x)\overline{x}y$
 # Equivalences
 
 ## 
-$(N/\equiv,+,\emptyset)$ is a symmetric monoid
+$(N/\equiv,+,\varnothing)$ is a symmetric monoid
 
- * $N+\emptyset \equiv N$
+ * $N+\varnothing \equiv N$
  * $N+M \equiv M+N$
  * $(L+M)+N \equiv L+(M+N)$
 
 ## 
-$(P/\equiv,|,\emptyset)$ is a symmetric monoid
+$(P/\equiv,|,\varnothing)$ is a symmetric monoid
 
- * $P|\emptyset \equiv P$
+ * $P|\varnothing \equiv P$
  * $P|Q \equiv Q|P$
  * $(P+Q)+S \equiv P+(Q+S)$
 
@@ -83,7 +83,7 @@ $!P \equiv P|!P$
  * $!P$ signifies "infinite" concurrenty running copies of P, so adding another should not change the meaning of our program.
 
 ## 
-$(\nu x)\emptyset \equiv \emptyset$
+$(\nu x)\varnothing \equiv \varnothing$
 
 ## 
 $(\nu x)(\nu y)P \equiv (\nu y)(\nu x)P$
@@ -91,7 +91,7 @@ $(\nu x)(\nu y)P \equiv (\nu y)(\nu x)P$
 ##
 If $x$ is not a free name in $P$ then $(\nu x)(P|Q) \equiv P|(\nu x)Q$
 
-# Reuctions
+# Reductions
 
 ## Communication (Comm) Rule - the only reduction
 $\overline{x}z.Q | x(y).P \rightarrow P\{z/y\}|Q$
@@ -128,7 +128,7 @@ $\rightarrow$
 $x(z).P\{a/y\} | \overline{x}b | \overline{x}c.\overline{x}.d$
 
 $\rightarrow$
-$x(z).P\{a/y,c/z\} | \overline{x}b | \overline{x}d$
+$P\{a/y,c/z\} | \overline{x}b | \overline{x}d$
 
 ## We must synchronize on another name!
  * $x(y_1 \cdots y_n)$ means $x(w).w(y_1). \cdots .w(y_n)$
@@ -146,4 +146,4 @@ $x(z).P\{a/y,c/z\} | \overline{x}b | \overline{x}d$
 ## Again, synchonize on a name!
  * $S = \cdots Tinder\_Match(alice, bob).P$
  * $\hat{S} = \cdots \overline{x}(alice, bob).P$ where $x$ is not a name in $S$
- * $S = (\nu x)(\hat{S} | !(x(y, z).(\overline{y}z | \overline{z}y)))$
+ * $S = (\nu x)(!(x(y, z).(\overline{y}z | \overline{z}y)) | \hat{S})$
