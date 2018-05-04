@@ -37,29 +37,32 @@
 ##
 $x(y)$
 
-##
-$x(y)$
-
- * Free Names: x
- * Bound Names: y
+ * Free Names: $x$
+ * Bound Names: $y$
 
 ##
 $\overline{x}y$
 
-## 
-$\overline{x}y$
-
- * Free Names: x, y
+ * Free Names: $x, y$
  * Bound Names: None
 
 ## 
 $(\nu x)\overline{x}y$
 
 ## 
-$(\nu x)\overline{x}y$
+$(\nu x)(\nu y)\overline{x}y$
 
- * Free Names: y
- * Bound Names: x
+ * Bound Names: $x, y$
+ * Free Names: None
+
+##
+$((\nu x)y(a).\overline{a}x + \overline{b}a) | (\nu y)x(a).P$
+
+##
+$(\nu x)y(a).\overline{a}x + \overline{b}a | (\nu y)x(a).P$
+
+ * Free Names: $a, b, y, x$ + Free Names in $P$
+ * Bound Names: Bound names in $P$ that are not the free names listed above
 
 # Equivalences
 
