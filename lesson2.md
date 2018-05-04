@@ -106,8 +106,6 @@ $\frac{P \rightarrow P'}{P|Q \rightarrow P'|Q}$
 ## Under restriction
 $\frac{P \rightarrow P'}{(\nu x)P \rightarrow (\nu x)P'}$
 
-# Structurally congruent terms have the same reductions.
-
 # Where reductions do not apply
 
 ## Within a single summand
@@ -120,6 +118,8 @@ $\frac{P \rightarrow P'}{(\nu x)P \rightarrow (\nu x)P'}$
 ## Underneath a prefix (in this paper)
  * $u(v).(x(y)|\overline{x}z)$ Does not reduce
  * Prefixing an atomic action freezes a process
+
+# Structurally congruent terms have the same reductions.
 
 ##
 $\frac{Q \equiv P, P \rightarrow P', P' \equiv Q'}{Q \rightarrow Q'}$
