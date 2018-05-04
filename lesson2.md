@@ -47,7 +47,7 @@ $\overline{x}y$
  * Bound Names: None
 
 ## 
-$(\nu x)\overline{x}y$
+$(\nu x)(\nu y)\overline{x}y$
 
 ## 
 $(\nu x)(\nu y)\overline{x}y$
@@ -56,10 +56,10 @@ $(\nu x)(\nu y)\overline{x}y$
  * Free Names: None
 
 ##
-$((\nu x)y(a).\overline{a}x + \overline{b}a) | (\nu y)x(a).P$
+$((\nu x)(y(a).\overline{a}x + \overline{b}a)) | (\nu y)x(a).P$
 
 ##
-$(\nu x)y(a).\overline{a}x + \overline{b}a | (\nu y)x(a).P$
+$((\nu x)y(a).\overline{a}x + \overline{b}a) | (\nu y)x(a).P$
 
  * Free Names: $a, b, y, x$ + Free Names in $P$
  * Bound Names: Bound names in $P$ that are not the free names listed above
@@ -150,3 +150,23 @@ $P\{a/y,c/z\} | \overline{x}b | \overline{x}d$
  * $S = \cdots Tinder\_Match(alice, bob).P$
  * $\hat{S} = \cdots \overline{x}(alice, bob).P$ where $x$ is not a name in $S$
  * $S = (\nu x)(!(x(y, z).(\overline{y}z | \overline{z}y)) | \hat{S})$
+
+# Shoutout to Joshy
+
+# Explorations
+ * Complete exercises found in the text
+ * We now have full information needed for Idris, KFramework Definition
+ * [Dan has started on an Idris Definition](http://www.madmode.com/togl/picalc2)
+ * (From Rinke) "say a process out loud"
+ * More "Free Name, Bound Name" examples
+ * Implement examples in JsonPi
+
+# Up Next...
+ * Language Definition / Proof Tools (Idris, K, Coq, Isabelle)
+ * Continue with Milner's "Tutorial" text
+ * Rho Calculus
+ * LADL (type theory)
+ * Programming in Rholang
+ * RChain Implementation Details (Rspace, System Level Contracts)
+ * Lambda Calculus
+ * ...?
