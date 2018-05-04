@@ -108,7 +108,7 @@ $\frac{P \rightarrow P'}{(\nu x)P \rightarrow (\nu x)P'}$
 
 # Structurally congruent terms have the same reductions.
 
-# Where reductions do <b>not<b> apply
+# Where reductions do not apply
 
 ## Within a single summand
  * $\overline{x}y + x(z)$ Does not reduce
@@ -118,7 +118,7 @@ $\frac{P \rightarrow P'}{(\nu x)P \rightarrow (\nu x)P'}$
  * By $!P \equiv P|!P$ we can always pull out a copy of $P$ that reduces
 
 ## Underneath a prefix (in this paper)
- * u(v).(x(y)|\overline{x}z) Does not reduce
+ * $u(v).(x(y)|\overline{x}z)$ Does not reduce
  * Prefixing an atomic action freezes a process
 
 ##
