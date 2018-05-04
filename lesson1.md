@@ -85,59 +85,156 @@ Ways to construct non-normal processes
 
 # Am I a process?
 
-## Yes or No? Normal or not?
+## Am I a process?
 
-* $\overline{x}y.P$
+$\overline{x}y.P$
+
+Process?
+
 . . .
-* Process
-* Normal
 
-## Yes or No? Normal or not?
-* $!N$
+Yes
+
 . . .
-* Process
-* Not Normal
 
-## Yes or No? Normal or not?
-* $P + N$
+Normal?
+
 . . .
-* Not a process
-* Can't "sum" non-normal processes
 
-## Yes or No? Normal or not?
-* $N | M$
-* Process
-* Not normal
+Yes
 
-## Yes or No? Normal or not?
-* $N | P$
+
+## Am I a process?
+$!N$
+
+Process?
+
 . . .
-* Process
-* Not normal
 
-## Expert level
-* $!((\nu x) x(z).P) + N$
-. . .
-* Not a process
-* The first item in the sum is not normal
+Yes
 
-## Expert level
-* $\overline{x}y.!((\nu x) x(z).P) + N$
 . . .
-* Process
-* Normal
 
-## Expert level
-* $\overline{x}y.(\nu x)x(z).\emptyset | N$
-. . .
-* Process
-* Not normal
+Normal?
 
-## Expert level
-* $\overline{x}y.(\nu x)x(z).((\nu z)z(z).\emptyset | N)$
 . . .
-* Process
-* Normal
+
+No
+
+## Am I a process?
+$P + N$
+
+Process?
+
+. . .
+
+No
+
+. . .
+
+Can't "sum" non-normal processes
+
+## Am I a process?
+$N | M$
+
+Process?
+
+. . .
+
+Yes
+
+. . .
+
+Normal?
+
+. . .
+
+No
+
+## Am I a process?
+$N | P$
+
+. . .
+
+Process?
+
+. . .
+
+Yes
+
+. . .
+
+Normal?
+
+. . .
+
+No
+
+## Am I a process?
+$!((\nu x) x(z).P) + N$
+
+Process?
+
+. . .
+
+No
+
+. . .
+
+The first item in the sum is not normal
+
+## Am I a process?
+$\overline{x}y.!((\nu x) x(z).P) + N$
+
+Process?
+
+. . .
+
+Yes
+
+. . .
+
+Normal?
+
+. . .
+
+Yes
+
+## Am I a process?
+$\overline{x}y.(\nu x)x(z).\emptyset | N$
+
+. . .
+
+Process?
+
+. . .
+
+Yes
+
+. . .
+
+Normal?
+
+. . .
+
+No
+
+## Am I a process?
+$\overline{x}y.(\nu x)x(z).((\nu z)z(z).\emptyset | N)$
+
+Process?
+
+. . .
+
+Yes
+
+. . .
+
+Normal?
+
+. . .
+
+Yes
 
 # In Summary
 
