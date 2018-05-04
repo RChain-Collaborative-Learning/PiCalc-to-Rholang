@@ -59,7 +59,7 @@ $(\nu x)(\nu y)\overline{x}y$
 $((\nu x)(y(a).\overline{a}x + \overline{b}a)) | (\nu y)x(a).P$
 
 ##
-$((\nu x)y(a).\overline{a}x + \overline{b}a) | (\nu y)x(a).P$
+$(\nu x)y(a).\overline{a}x + \overline{b}a | (\nu y)x(a).P$
 
  * Free Names: $a, b, y, x$ + Free Names in $P$
  * Bound Names: Bound names in $P$ that are not the free names listed above
@@ -78,7 +78,7 @@ $(P/\equiv,|,\varnothing)$ is a symmetric monoid
 
  * $P|\varnothing \equiv P$
  * $P|Q \equiv Q|P$
- * $(P+Q)+S \equiv P+(Q+S)$
+ * $(P|Q)|S \equiv P|(Q|S)$
 
 ## 
 $!P \equiv P|!P$
@@ -107,6 +107,19 @@ $\frac{P \rightarrow P'}{P|Q \rightarrow P'|Q}$
 $\frac{P \rightarrow P'}{(\nu x)P \rightarrow (\nu x)P'}$
 
 # Structurally congruent terms have the same reductions.
+
+# Where reductions do <b>not<b> apply
+
+## Within a single summand
+ * $\overline{x}y + x(z)$ Does not reduce
+ * Only one of the atomic prefixes of a normal process may execute
+
+## Beneath replication
+ * By $!P \equiv P|!P$ we can always pull out a copy of $P$ that reduces
+
+## Underneath a prefix (in this paper)
+ * u(v).(x(y)|\overline{x}z) Does not reduce
+ * Prefixing an atomic action freezes a process
 
 ##
 $\frac{Q \equiv P, P \rightarrow P', P' \equiv Q'}{Q \rightarrow Q'}$
@@ -154,6 +167,8 @@ $P\{a/y,c/z\} | \overline{x}b | \overline{x}d$
 # Shoutout to Joshy
 
 # Explorations
+
+##
  * Complete exercises found in the text
  * We now have full information needed for Idris, KFramework Definition
  * [Dan has started on an Idris Definition](http://www.madmode.com/togl/picalc2)
@@ -162,6 +177,8 @@ $P\{a/y,c/z\} | \overline{x}b | \overline{x}d$
  * Implement examples in JsonPi
 
 # Up Next...
+
+##
  * Language Definition / Proof Tools (Idris, K, Coq, Isabelle)
  * Continue with Milner's "Tutorial" text
  * Rho Calculus

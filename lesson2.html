@@ -107,7 +107,7 @@
 <p><span class="math inline">\(((\nu x)(y(a).\overline{a}x + \overline{b}a)) | (\nu y)x(a).P\)</span></p>
 </section><section id="section-7" class="slide level2">
 <h2></h2>
-<p><span class="math inline">\(((\nu x)y(a).\overline{a}x + \overline{b}a) | (\nu y)x(a).P\)</span></p>
+<p><span class="math inline">\((\nu x)y(a).\overline{a}x + \overline{b}a | (\nu y)x(a).P\)</span></p>
 <ul>
 <li>Free Names: <span class="math inline">\(a, b, y, x\)</span> + Free Names in <span class="math inline">\(P\)</span></li>
 <li>Bound Names: Bound names in <span class="math inline">\(P\)</span> that are not the free names listed above</li>
@@ -127,7 +127,7 @@
 <ul>
 <li><span class="math inline">\(P|\varnothing \equiv P\)</span></li>
 <li><span class="math inline">\(P|Q \equiv Q|P\)</span></li>
-<li><span class="math inline">\((P+Q)+S \equiv P+(Q+S)\)</span></li>
+<li><span class="math inline">\((P|Q)|S \equiv P|(Q|S)\)</span></li>
 </ul>
 </section><section id="section-10" class="slide level2">
 <h2></h2>
@@ -156,7 +156,25 @@
 <h2>Under restriction</h2>
 <p><span class="math inline">\(\frac{P \rightarrow P&#39;}{(\nu x)P \rightarrow (\nu x)P&#39;}\)</span></p>
 </section></section>
-<section><section id="structurally-congruent-terms-have-the-same-reductions." class="title-slide slide level1"><h1>Structurally congruent terms have the same reductions.</h1></section><section id="section-14" class="slide level2">
+<section><section id="structurally-congruent-terms-have-the-same-reductions." class="title-slide slide level1"><h1>Structurally congruent terms have the same reductions.</h1></section></section>
+<section><section id="where-reductions-do-not-apply" class="title-slide slide level1"><h1>Where reductions do <b>not<b> apply</h1></section><section id="within-a-single-summand" class="slide level2">
+<h2>Within a single summand</h2>
+<ul>
+<li><span class="math inline">\(\overline{x}y + x(z)\)</span> Does not reduce</li>
+<li>Only one of the atomic prefixes of a normal process may execute</li>
+</ul>
+</section><section id="beneath-replication" class="slide level2">
+<h2>Beneath replication</h2>
+<ul>
+<li>By <span class="math inline">\(!P \equiv P|!P\)</span> we can always pull out a copy of <span class="math inline">\(P\)</span> that reduces</li>
+</ul>
+</section><section id="underneath-a-prefix-in-this-paper" class="slide level2">
+<h2>Underneath a prefix (in this paper)</h2>
+<ul>
+<li>u(v).(x(y)|z) Does not reduce</li>
+<li>Prefixing an atomic action freezes a process</li>
+</ul>
+</section><section id="section-14" class="slide level2">
 <h2></h2>
 <p><span class="math inline">\(\frac{Q \equiv P, P \rightarrow P&#39;, P&#39; \equiv Q&#39;}{Q \rightarrow Q&#39;}\)</span></p>
 </section></section>
@@ -202,8 +220,30 @@
 </ul>
 </section></section>
 <section><section id="shoutout-to-joshy" class="title-slide slide level1"><h1>Shoutout to Joshy</h1></section></section>
-<section><section id="explorations" class="title-slide slide level1"><h1>Explorations</h1></section></section>
-<section><section id="up-next" class="title-slide slide level1"><h1>Up Next…</h1></section></section>
+<section><section id="explorations" class="title-slide slide level1"><h1>Explorations</h1></section><section id="section-15" class="slide level2">
+<h2></h2>
+<ul>
+<li>Complete exercises found in the text</li>
+<li>We now have full information needed for Idris, KFramework Definition</li>
+<li><a href="http://www.madmode.com/togl/picalc2">Dan has started on an Idris Definition</a></li>
+<li>(From Rinke) “say a process out loud”</li>
+<li>More “Free Name, Bound Name” examples</li>
+<li>Implement examples in JsonPi</li>
+</ul>
+</section></section>
+<section><section id="up-next" class="title-slide slide level1"><h1>Up Next…</h1></section><section id="section-16" class="slide level2">
+<h2></h2>
+<ul>
+<li>Language Definition / Proof Tools (Idris, K, Coq, Isabelle)</li>
+<li>Continue with Milner’s “Tutorial” text</li>
+<li>Rho Calculus</li>
+<li>LADL (type theory)</li>
+<li>Programming in Rholang</li>
+<li>RChain Implementation Details (Rspace, System Level Contracts)</li>
+<li>Lambda Calculus</li>
+<li>…?</li>
+</ul>
+</section></section>
     </div>
   </div>
 
