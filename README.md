@@ -6,9 +6,11 @@ Jake Gillberg organized a collaborative learning group around the pi calculus in
 
 | Lesson | Date | Sections| Item |
 |---|---|---|---|
-| 1 | 04 April 2018 | 1.1 - 2.2 | [session recording](https://youtu.be/WO8rGA8AjD0)|
-| 1 | 04 April 2018 | 1.1 - 2.2 | [google slides (used in the presentation)](https://docs.google.com/presentation/d/1fCvPIcxLKx8igoMguqNJoO_k-7wuPdbwMskHZ8Dq-C0/edit?usp=sharing)|
-| 1 | 04 April 2018 | 1.1 - 2.2 | [reveal slides (in effort to create easier to correct, collaborative slides)](lesson1.html)|
+| 1 | 27 April 2018 | 1.1 - 2.2 | [session recording](https://youtu.be/WO8rGA8AjD0)|
+| 1 | 27 April 2018 | 1.1 - 2.2 | [google slides (used in the presentation)](https://docs.google.com/presentation/d/1fCvPIcxLKx8igoMguqNJoO_k-7wuPdbwMskHZ8Dq-C0/edit?usp=sharing)|
+| 1 | 27 April 2018 | 1.1 - 2.2 | [reveal slides (in effort to create easier to correct, collaborative slides)](https://rchain-collaborative-learning.github.io/PiCalculus/lesson1.html)|
+| 2 | 04 May 2018 | 2.3 - 2.4 | [session recording](https://www.youtube.com/watch?v=4E96yDkJj6g) |
+| 2 | 04 May 2018 | 2.3 - 2.4 | [slides](https://rchain-collaborative-learning.github.io/PiCalculus/lesson2.html)
 
 # Repository
 Slides are written in markdown format and saved in files named like `lesson1.md` They are converted to reveal.js format via [pandoc](https://pandoc.org). There is significant room for improvement in visual presentation.
