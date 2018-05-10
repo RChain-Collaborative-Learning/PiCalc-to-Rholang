@@ -35,7 +35,7 @@
     <div class="slides">
 
 
-<section><section id="a-reflective-higher-order-rho-rho-calculus" class="title-slide slide level1"><h1>A Reflective Higher-order (Rho [<span class="math inline">\(\rho\)</span>]) Calculus</h1></section><section id="section" class="slide level2">
+<section><section id="a-reflective-higher-order-rho-calculus" class="title-slide slide level1"><h1>A Reflective Higher-order (Rho) Calculus</h1></section><section id="section" class="slide level2">
 <h2>2.3 - 3.2</h2>
 <ul>
 <li>Led by Jake Gillberg</li>
@@ -70,7 +70,10 @@
 <p>We would have a tighter theory of computation and a guide for implementation.</p>
 </div>
 </section></section>
-<section><section id="the-rho-calculus" class="title-slide slide level1"><h1>The <span class="math inline">\(\rho\)</span>-calculus</h1></section><section id="names-and-processes" class="slide level2">
+<section><section id="the-rho-calculus" class="title-slide slide level1"><h1>The rho-calculus</h1></section><section id="section-2" class="slide level2">
+<h2></h2>
+<p><span class="math inline">\(\rho\)</span>-calculus</p>
+</section><section id="names-and-processes" class="slide level2">
 <h2>Names and Processes</h2>
 <p>Processes: usually presented as uppercase letters like <span class="math inline">\(P, Q\)</span>.</p>
 <div class="fragment">
@@ -132,7 +135,7 @@
 </div>
 </section><section id="alpha-equivalence" class="slide level2">
 <h2>Alpha Equivalence</h2>
-</section><section id="section-2" class="slide level2">
+</section><section id="section-3" class="slide level2">
 <h2></h2>
 <p><span class="math inline">\(x(z).w \langle y \langle \urcorner z \ulcorner \rangle \rangle \equiv x(v).w \langle y \langle \urcorner v \ulcorner \rangle \rangle\)</span></p>
 <div class="fragment">
@@ -147,7 +150,7 @@
 <div class="fragment">
 <p>But we got here trying to determine if two processes were equal…</p>
 </div>
-</section><section id="section-3" class="slide level2">
+</section><section id="section-4" class="slide level2">
 <h2></h2>
 <p>Defining structural congruence of processes . . . Depends on equality of names . . . Which depends on process equivalence . . . We keep moving down quotes, until we hit the <span class="math inline">\(0\)</span> process, our grammer assures this.</p>
 </section><section id="name-equivalence" class="slide level2">
@@ -183,10 +186,10 @@
 <p>Note, no substitutions happen under a quote.</p>
 </div>
 </section></section>
-<section><section id="reductions" class="title-slide slide level1"><h1>Reductions</h1></section><section id="section-4" class="slide level2">
+<section><section id="reductions" class="title-slide slide level1"><h1>Reductions</h1></section><section id="section-5" class="slide level2">
 <h2></h2>
 <p><span class="math inline">\((\urcorner x \ulcorner)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} \rightarrow Q\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span></p>
-</section><section id="section-5" class="slide level2">
+</section><section id="section-6" class="slide level2">
 <h2></h2>
 <p><span class="math inline">\(\frac{x_0 \equiv _N x_1} {x_0 \langle Q \rangle | x_1(y).P \rightarrow P\{\ulcorner Q \urcorner / y\}}\)</span></p>
 </section></section>

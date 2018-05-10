@@ -1,4 +1,4 @@
-# A Reflective Higher-order (Rho [$\rho$]) Calculus
+# A Reflective Higher-order (Rho) Calculus
 
 ## 2.3 - 3.2
 * Led by Jake Gillberg
@@ -37,7 +37,10 @@ There was a relationship between the structure of names and processes.
 
 We would have a tighter theory of computation and a guide for implementation.
 
-# The $\rho$-calculus
+# The rho-calculus
+
+##
+$\rho$-calculus
 
 ## Names and Processes
 Processes: usually presented as uppercase letters like $P, Q$.
