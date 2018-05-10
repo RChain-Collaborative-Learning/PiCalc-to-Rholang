@@ -51,8 +51,10 @@ Names: usually presented as lowercase letters like $x, y, z$. They are NOT the b
 
 # Grammar
 
-## Constructing Processes and Names
-Processes: $P,Q ::=$
+## Constructing Processes
+$P,Q ::=$
+
+. . .
 
 $0$ - null process
 
@@ -72,13 +74,14 @@ $\urcorner x \ulcorner$ - drop
 
 $P|Q$ - parallel
 
-. . .
+## Constructing Names
+$x,y ::=$
 
-Names: $x,y ::=$
+. . .
 
 $\ulcorner P \urcorner$ - quote
 
-## Free & Bound Names
+## Free Names
 
 . . . 
 
@@ -99,6 +102,9 @@ $FN(P | Q)=FN(P)\cup FN(Q)$
 . . .
 
 $FN(\urcorner x \ulcorner)=\{x\}$
+
+## Bound Names
+The names referenced in a process that are not free.
 
 # Equivalences
 
@@ -144,11 +150,17 @@ But we got here trying to determine if two processes were equal...
 
 ##
 Defining structural congruence of processes
+
 . . .
+
 Depends on equality of names
+
 . . .
+
 Which depends on process equivalence
+
 . . .
+
 We keep moving down quotes, until we hit the $0$ process, our grammer assures this.
 
 ## Name Equivalence
@@ -165,47 +177,48 @@ If $P \equiv Q$ then $\ulcorner P \urcorner \equiv _N \ulcorner Q \urcorner$
 ## Completing Process Structural Equivalence
 Now use name equivalence to define the substitution used by $\alpha$-equivalence.
 
+##
 $(x)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} =
 \ulcorner Q \urcorner$ if $x \equiv _N \ulcorner P \urcorner$, $\urcorner x \ulcorner$ otherwise
 
-. . .
-
+##
 $(0)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = 0$
 
-. . .
-
+##
 $(R | S)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} =
 (R)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} |
 (S)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}}$
 
-. . .
-
+##
 $(x(y).R)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} =
 (x)\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}(z).
 ((R\hat{\{z/y\}})\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}})$
 
 $z$ is not $\ulcorner P \urcorner$, $\ulcorner Q \urcorner$, not in the free names of Q, and not in the names of R.
 
-. . .
-
+##
 $(x \langle R \rangle)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} =
 (x)\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}
 \langle R\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}}\rangle$
 
-. . .
-
+##
 $(\urcorner x \ulcorner)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} =
-\urcorner\ulcorner Q \urcorner\ulcorner$ if $x \equiv _N \ulcorner P \urcorner$, $\urcorner x \ulcorner$ otherwise
-
-. . .
-
-Note, no substitutions happen under a quote.
-
-# Reductions
+Q$ if $x \equiv _N \ulcorner P \urcorner$, $\urcorner x \ulcorner$ otherwise
 
 ##
-$(\urcorner x \ulcorner)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}}
-\rightarrow Q$ if $x \equiv _N \ulcorner P \urcorner$
+Note, no substitutions happen under a quote.
+
+. . .
+
+$w \langle y \langle \urcorner z \ulcorner \rangle \rangle
+\hat{\{u/z\}} =
+w \langle y \langle \urcorner u \ulcorner \rangle \rangle$
+
+$w \langle \ulcorner y \langle \urcorner z \ulcorner \rangle \urcorner \rangle
+\hat{\{u/z\}} =
+$w \langle \ulcorner y \langle \urcorner z \ulcorner \rangle \urcorner \rangle
+
+# Reductions
 
 ##
 $\frac{x_0 \equiv _N x_1}

@@ -80,10 +80,12 @@
 <p>Names: usually presented as lowercase letters like <span class="math inline">\(x, y, z\)</span>. They are NOT the base elements of this calculus, they are constructed from processes.</p>
 </div>
 </section></section>
-<section><section id="grammar" class="title-slide slide level1"><h1>Grammar</h1></section><section id="constructing-processes-and-names" class="slide level2">
-<h2>Constructing Processes and Names</h2>
-<p>Processes: <span class="math inline">\(P,Q ::=\)</span></p>
+<section><section id="grammar" class="title-slide slide level1"><h1>Grammar</h1></section><section id="constructing-processes" class="slide level2">
+<h2>Constructing Processes</h2>
+<p><span class="math inline">\(P,Q ::=\)</span></p>
+<div class="fragment">
 <p><span class="math inline">\(0\)</span> - null process</p>
+</div>
 <div class="fragment">
 <p><span class="math inline">\(x(y).P\)</span> - input</p>
 </div>
@@ -96,12 +98,14 @@
 <div class="fragment">
 <p><span class="math inline">\(P|Q\)</span> - parallel</p>
 </div>
+</section><section id="constructing-names" class="slide level2">
+<h2>Constructing Names</h2>
+<p><span class="math inline">\(x,y ::=\)</span></p>
 <div class="fragment">
-<p>Names: <span class="math inline">\(x,y ::=\)</span></p>
 <p><span class="math inline">\(\ulcorner P \urcorner\)</span> - quote</p>
 </div>
-</section><section id="free-bound-names" class="slide level2">
-<h2>Free &amp; Bound Names</h2>
+</section><section id="free-names" class="slide level2">
+<h2>Free Names</h2>
 <div class="fragment">
 <p><span class="math inline">\(FN(0)=\emptyset\)</span></p>
 </div>
@@ -117,6 +121,9 @@
 <div class="fragment">
 <p><span class="math inline">\(FN(\urcorner x \ulcorner)=\{x\}\)</span></p>
 </div>
+</section><section id="bound-names" class="slide level2">
+<h2>Bound Names</h2>
+<p>The names referenced in a process that are not free.</p>
 </section></section>
 <section><section id="equivalences" class="title-slide slide level1"><h1>Equivalences</h1></section><section id="structural-congruence" class="slide level2">
 <h2>Structural Congruence</h2>
@@ -152,7 +159,16 @@
 </div>
 </section><section id="section-4" class="slide level2">
 <h2></h2>
-<p>Defining structural congruence of processes . . . Depends on equality of names . . . Which depends on process equivalence . . . We keep moving down quotes, until we hit the <span class="math inline">\(0\)</span> process, our grammer assures this.</p>
+<p>Defining structural congruence of processes</p>
+<div class="fragment">
+<p>Depends on equality of names</p>
+</div>
+<div class="fragment">
+<p>Which depends on process equivalence</p>
+</div>
+<div class="fragment">
+<p>We keep moving down quotes, until we hit the <span class="math inline">\(0\)</span> process, our grammer assures this.</p>
+</div>
 </section><section id="name-equivalence" class="slide level2">
 <h2>Name Equivalence</h2>
 <p>For now, assume we have process equivalence, and generate a name equivalence.</p>
@@ -165,31 +181,34 @@
 </section><section id="completing-process-structural-equivalence" class="slide level2">
 <h2>Completing Process Structural Equivalence</h2>
 <p>Now use name equivalence to define the substitution used by <span class="math inline">\(\alpha\)</span>-equivalence.</p>
+</section><section id="section-5" class="slide level2">
+<h2></h2>
 <p><span class="math inline">\((x)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = \ulcorner Q \urcorner\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span>, <span class="math inline">\(\urcorner x \ulcorner\)</span> otherwise</p>
-<div class="fragment">
+</section><section id="section-6" class="slide level2">
+<h2></h2>
 <p><span class="math inline">\((0)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = 0\)</span></p>
-</div>
-<div class="fragment">
+</section><section id="section-7" class="slide level2">
+<h2></h2>
 <p><span class="math inline">\((R | S)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = (R)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} | (S)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}}\)</span></p>
-</div>
-<div class="fragment">
+</section><section id="section-8" class="slide level2">
+<h2></h2>
 <p><span class="math inline">\((x(y).R)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = (x)\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}(z). ((R\hat{\{z/y\}})\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}})\)</span></p>
 <p><span class="math inline">\(z\)</span> is not <span class="math inline">\(\ulcorner P \urcorner\)</span>, <span class="math inline">\(\ulcorner Q \urcorner\)</span>, not in the free names of Q, and not in the names of R.</p>
-</div>
-<div class="fragment">
+</section><section id="section-9" class="slide level2">
+<h2></h2>
 <p><span class="math inline">\((x \langle R \rangle)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = (x)\{\ulcorner Q \urcorner / \ulcorner P \urcorner\} \langle R\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}}\rangle\)</span></p>
-</div>
-<div class="fragment">
-<p><span class="math inline">\((\urcorner x \ulcorner)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = \urcorner\ulcorner Q \urcorner\ulcorner\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span>, <span class="math inline">\(\urcorner x \ulcorner\)</span> otherwise</p>
-</div>
-<div class="fragment">
+</section><section id="section-10" class="slide level2">
+<h2></h2>
+<p><span class="math inline">\((\urcorner x \ulcorner)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = Q\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span>, <span class="math inline">\(\urcorner x \ulcorner\)</span> otherwise</p>
+</section><section id="section-11" class="slide level2">
+<h2></h2>
 <p>Note, no substitutions happen under a quote.</p>
+<div class="fragment">
+<p><span class="math inline">\(w \langle y \langle \urcorner z \ulcorner \rangle \rangle \hat{\{u/z\}} = w \langle y \langle \urcorner u \ulcorner \rangle \rangle\)</span></p>
+<p>$w y z   = $w y z </p>
 </div>
 </section></section>
-<section><section id="reductions" class="title-slide slide level1"><h1>Reductions</h1></section><section id="section-5" class="slide level2">
-<h2></h2>
-<p><span class="math inline">\((\urcorner x \ulcorner)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} \rightarrow Q\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span></p>
-</section><section id="section-6" class="slide level2">
+<section><section id="reductions" class="title-slide slide level1"><h1>Reductions</h1></section><section id="section-12" class="slide level2">
 <h2></h2>
 <p><span class="math inline">\(\frac{x_0 \equiv _N x_1} {x_0 \langle Q \rangle | x_1(y).P \rightarrow P\{\ulcorner Q \urcorner / y\}}\)</span></p>
 </section></section>
