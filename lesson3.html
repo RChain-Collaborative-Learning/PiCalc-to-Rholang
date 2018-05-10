@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>lesson3</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body);
+  });</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section><section id="a-reflective-higher-order-rho-rho-calculus" class="title-slide slide level1"><h1>A Reflective Higher-order (Rho [<span class="math inline">\(\rho\)</span>]) Calculus</h1></section><section id="section" class="slide level2">
+<h2>2.3 - 3.2</h2>
+<ul>
+<li>Led by Jake Gillberg</li>
+<li>11 May 2018</li>
+<li><a href="https://ac.els-cdn.com/S1571066105051893/1-s2.0-S1571066105051893-main.pdf?_tid=87049592-146c-4e5c-bc0c-faeb5dae7a1d&amp;acdnat=1525872456_b7d3df2719aee238da6de50e75ac47d1">Meredith’s Paper</a></li>
+</ul>
+</section></section>
+<section><section id="last-week-we" class="title-slide slide level1"><h1>Last week we…</h1></section></section>
+<section><section id="section-1" class="title-slide slide level1"><h1></h1></section><section id="reflection" class="slide level2">
+<h2>Reflection</h2>
+<blockquote>
+…the ability of a computer pogram to examine, introspect, and modify its own structure and behavior at runtime.&quot;
+</blockquote>
+<p>-Wikipedia</p>
+</section><section id="higher-order-programming" class="slide level2">
+<h2>Higher-order programming</h2>
+<p>Entities can operate on other entities of the same level. In functional programming land, this is the ability for functions to take functions as arguments, and return functions as results.</p>
+</section></section>
+<section><section id="motiviation" class="title-slide slide level1"><h1>Motiviation</h1></section><section id="so-what" class="slide level2">
+<h2>So what?</h2>
+<p>All of the infinite sets we may use to implement names <span class="math inline">\(\pi\)</span>-calculus are structured.</p>
+<div class="fragment">
+<p>When names are structured, checking for name equality becomes a computation.</p>
+</div>
+<div class="fragment">
+<p>In implementation, the <span class="math inline">\(\pi\)</span>-calculus fundamental theory of computation depends on some other form of computation inherent in structured names.</p>
+</div>
+</section><section id="what-if" class="slide level2">
+<h2>What if…</h2>
+<p>There was a relationship between the structure of names and processes.</p>
+<div class="fragment">
+<p>We would have a tighter theory of computation and a guide for implementation.</p>
+</div>
+</section></section>
+<section><section id="the-rho-calculus" class="title-slide slide level1"><h1>The <span class="math inline">\(\rho\)</span>-calculus</h1></section><section id="names-and-processes" class="slide level2">
+<h2>Names and Processes</h2>
+<p>Processes: usually presented as uppercase letters like <span class="math inline">\(P, Q\)</span>.</p>
+<div class="fragment">
+<p>Names: usually presented as lowercase letters like <span class="math inline">\(x, y, z\)</span>. They are NOT the base elements of this calculus, they are constructed from processes.</p>
+</div>
+</section></section>
+<section><section id="grammar" class="title-slide slide level1"><h1>Grammar</h1></section><section id="constructing-processes-and-names" class="slide level2">
+<h2>Constructing Processes and Names</h2>
+<p>Processes: <span class="math inline">\(P,Q ::=\)</span></p>
+<p><span class="math inline">\(0\)</span> - null process</p>
+<div class="fragment">
+<p><span class="math inline">\(x(y).P\)</span> - input</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\langle P \rangle\)</span> - lift</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\urcorner x \ulcorner\)</span> - drop</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(P|Q\)</span> - parallel</p>
+</div>
+<div class="fragment">
+<p>Names: <span class="math inline">\(x,y ::=\)</span></p>
+<p><span class="math inline">\(\ulcorner P \urcorner\)</span> - quote</p>
+</div>
+</section><section id="free-bound-names" class="slide level2">
+<h2>Free &amp; Bound Names</h2>
+<div class="fragment">
+<p><span class="math inline">\(FN(0)=\emptyset\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(FN(x(y).P)=\{x\} \cup (FN(P)\setminus \{y\})\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(FN(x \langle P \rangle)=\{x\}\cup FN(P)\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(FN(P | Q)=FN(P)\cup FN(Q)\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(FN(\urcorner x \ulcorner)=\{x\}\)</span></p>
+</div>
+</section></section>
+<section><section id="equivalences" class="title-slide slide level1"><h1>Equivalences</h1></section><section id="structural-congruence" class="slide level2">
+<h2>Structural Congruence</h2>
+<p>least congruence satisfying:</p>
+<div class="fragment">
+<p><span class="math inline">\(P | Q \equiv P \equiv 0 | P\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(P | Q \equiv Q | P\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\((P | Q) | R \equiv P | (Q | R)\)</span></p>
+</div>
+<div class="fragment">
+<p>Alpha Equivalence - “re-naming” a free variable doesn’t change a process.</p>
+</div>
+</section><section id="alpha-equivalence" class="slide level2">
+<h2>Alpha Equivalence</h2>
+</section><section id="section-2" class="slide level2">
+<h2></h2>
+<p><span class="math inline">\(x(z).w \langle y \langle \urcorner z \ulcorner \rangle \rangle \equiv x(v).w \langle y \langle \urcorner v \ulcorner \rangle \rangle\)</span></p>
+<div class="fragment">
+<p>We need to be able to deterime whether two names are equal to do a substitution.</p>
+</div>
+<div class="fragment">
+<p>If names are quoted processes, we need to determine whether two processes are “equal” to determine if the names are equal.</p>
+</div>
+<div class="fragment">
+<p>It would be nice if two structurally equivalent processes produced equivalent names.</p>
+</div>
+<div class="fragment">
+<p>But we got here trying to determine if two processes were equal…</p>
+</div>
+</section><section id="section-3" class="slide level2">
+<h2></h2>
+<p>Defining structural congruence of processes . . . Depends on equality of names . . . Which depends on process equivalence . . . We keep moving down quotes, until we hit the <span class="math inline">\(0\)</span> process, our grammer assures this.</p>
+</section><section id="name-equivalence" class="slide level2">
+<h2>Name Equivalence</h2>
+<p>For now, assume we have process equivalence, and generate a name equivalence.</p>
+<div class="fragment">
+<p><span class="math inline">\(\ulcorner \urcorner x \ulcorner \urcorner \equiv _N x\)</span></p>
+</div>
+<div class="fragment">
+<p>If <span class="math inline">\(P \equiv Q\)</span> then <span class="math inline">\(\ulcorner P \urcorner \equiv _N \ulcorner Q \urcorner\)</span></p>
+</div>
+</section><section id="completing-process-structural-equivalence" class="slide level2">
+<h2>Completing Process Structural Equivalence</h2>
+<p>Now use name equivalence to define the substitution used by <span class="math inline">\(\alpha\)</span>-equivalence.</p>
+<p><span class="math inline">\((x)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = \ulcorner Q \urcorner\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span>, <span class="math inline">\(\urcorner x \ulcorner\)</span> otherwise</p>
+<div class="fragment">
+<p><span class="math inline">\((0)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = 0\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\((R | S)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = (R)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} | (S)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}}\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\((x(y).R)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = (x)\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}(z). ((R\hat{\{z/y\}})\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}})\)</span></p>
+<p><span class="math inline">\(z\)</span> is not <span class="math inline">\(\ulcorner P \urcorner\)</span>, <span class="math inline">\(\ulcorner Q \urcorner\)</span>, not in the free names of Q, and not in the names of R.</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\((x \langle R \rangle)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = (x)\{\ulcorner Q \urcorner / \ulcorner P \urcorner\} \langle R\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}}\rangle\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\((\urcorner x \ulcorner)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = \urcorner\ulcorner Q \urcorner\ulcorner\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span>, <span class="math inline">\(\urcorner x \ulcorner\)</span> otherwise</p>
+</div>
+<div class="fragment">
+<p>Note, no substitutions happen under a quote.</p>
+</div>
+</section></section>
+<section><section id="reductions" class="title-slide slide level1"><h1>Reductions</h1></section><section id="section-4" class="slide level2">
+<h2></h2>
+<p><span class="math inline">\((\urcorner x \ulcorner)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} \rightarrow Q\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span></p>
+</section><section id="section-5" class="slide level2">
+<h2></h2>
+<p><span class="math inline">\(\frac{x_0 \equiv _N x_1} {x_0 \langle Q \rangle | x_1(y).P \rightarrow P\{\ulcorner Q \urcorner / y\}}\)</span></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
