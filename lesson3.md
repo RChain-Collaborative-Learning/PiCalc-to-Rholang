@@ -64,7 +64,7 @@ $x(y).P$ - input
 
 . . .
 
-$\langle P \rangle$ - lift
+$x \langle P \rangle$ - lift
 
 . . .
 
@@ -179,7 +179,10 @@ Now use name equivalence to define the substitution used by $\alpha$-equivalence
 
 ##
 $(x)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} =
-\ulcorner Q \urcorner$ if $x \equiv _N \ulcorner P \urcorner$, $\urcorner x \ulcorner$ otherwise
+\ulcorner Q \urcorner$ if $x \equiv _N \ulcorner P \urcorner$,
+
+$(x)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} =
+$\urcorner x \ulcorner$ otherwise
 
 ##
 $(0)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = 0$
@@ -216,7 +219,7 @@ w \langle y \langle \urcorner u \ulcorner \rangle \rangle$
 
 $w \langle \ulcorner y \langle \urcorner z \ulcorner \rangle \urcorner \rangle
 \hat{\{u/z\}} =
-$w \langle \ulcorner y \langle \urcorner z \ulcorner \rangle \urcorner \rangle
+w \langle \ulcorner y \langle \urcorner z \ulcorner \rangle \urcorner \rangle$
 
 # Reductions
 

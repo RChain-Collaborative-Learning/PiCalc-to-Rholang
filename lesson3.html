@@ -90,7 +90,7 @@
 <p><span class="math inline">\(x(y).P\)</span> - input</p>
 </div>
 <div class="fragment">
-<p><span class="math inline">\(\langle P \rangle\)</span> - lift</p>
+<p><span class="math inline">\(x \langle P \rangle\)</span> - lift</p>
 </div>
 <div class="fragment">
 <p><span class="math inline">\(\urcorner x \ulcorner\)</span> - drop</p>
@@ -183,7 +183,8 @@
 <p>Now use name equivalence to define the substitution used by <span class="math inline">\(\alpha\)</span>-equivalence.</p>
 </section><section id="section-5" class="slide level2">
 <h2></h2>
-<p><span class="math inline">\((x)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = \ulcorner Q \urcorner\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span>, <span class="math inline">\(\urcorner x \ulcorner\)</span> otherwise</p>
+<p><span class="math inline">\((x)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = \ulcorner Q \urcorner\)</span> if <span class="math inline">\(x \equiv _N \ulcorner P \urcorner\)</span>,</p>
+<p>$(x) = <span class="math inline">\(\urcorner x \ulcorner\)</span> otherwise</p>
 </section><section id="section-6" class="slide level2">
 <h2></h2>
 <p><span class="math inline">\((0)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = 0\)</span></p>
@@ -205,7 +206,7 @@
 <p>Note, no substitutions happen under a quote.</p>
 <div class="fragment">
 <p><span class="math inline">\(w \langle y \langle \urcorner z \ulcorner \rangle \rangle \hat{\{u/z\}} = w \langle y \langle \urcorner u \ulcorner \rangle \rangle\)</span></p>
-<p>$w y z   = $w y z </p>
+<p><span class="math inline">\(w \langle \ulcorner y \langle \urcorner z \ulcorner \rangle \urcorner \rangle \hat{\{u/z\}} = w \langle \ulcorner y \langle \urcorner z \ulcorner \rangle \urcorner \rangle\)</span></p>
 </div>
 </section></section>
 <section><section id="reductions" class="title-slide slide level1"><h1>Reductions</h1></section><section id="section-12" class="slide level2">
