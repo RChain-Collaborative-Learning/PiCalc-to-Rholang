@@ -83,6 +83,8 @@ $x,y ::=$
 
 $\ulcorner P \urcorner$ - quote
 
+## What is missing?
+
 ## Free Names
 
 . . . 
@@ -115,7 +117,7 @@ least congruence satisfying:
 
 . . .
 
-$P | Q \equiv P \equiv 0 | P$
+$P | 0 \equiv P \equiv 0 | P$
 
 . . .
 
@@ -180,11 +182,11 @@ If $P \equiv Q$ then $\ulcorner P \urcorner \equiv _N \ulcorner Q \urcorner$
 Now use name equivalence to define the substitution used by $\alpha$-equivalence.
 
 ##
-$(x)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} =
-\ulcorner Q \urcorner$ if $x \equiv _N \ulcorner P \urcorner$,
+$(x)\{\ulcorner Q \urcorner / \ulcorner P \urcorner\} =
+\ulcorner Q \urcorner$ if $x \equiv _N \ulcorner P \urcorner $
 
-$(x)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} =
-$\urcorner x \ulcorner$ otherwise
+$(x)\{\ulcorner Q \urcorner / \ulcorner P \urcorner\} =
+\urcorner x \ulcorner$ otherwise
 
 ##
 $(0)\hat{\{\ulcorner Q \urcorner / \ulcorner P \urcorner\}} = 0$
