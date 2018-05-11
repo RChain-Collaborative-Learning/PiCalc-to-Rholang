@@ -1,6 +1,3 @@
-addons:
-  apt_packages:
-    - pandoc
 install:
   - git submodule update --init --recursive
 script:
