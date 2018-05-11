@@ -17,6 +17,8 @@ Entities can operate on other entities of the same level. In functional programm
 
 
 # Motiviation
+
+##
 The $\pi$-calculus is not a closed theory; it depends on a theory of names.
 
 ## So what?
