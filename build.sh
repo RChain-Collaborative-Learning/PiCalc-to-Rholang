@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget "https://s3-us-west-1.amazonaws.com/pandoc-releases/pandoc"
+wget -nv "https://s3-us-west-1.amazonaws.com/pandoc-releases/pandoc"
 chmod +x ./pandoc
 
 for file in lesson*.md; do
