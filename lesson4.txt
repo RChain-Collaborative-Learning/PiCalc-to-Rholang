@@ -1,0 +1,76 @@
+comm rule:
+
+xi =_N xi' =>
+
+R + for(x1 <- y1; ...; xN <- yN)P + S
+| y1'!(Q1) | ... | yN'!(QN)
+
+->
+
+P{@Q1/x1, ..., @QN/yN}
+
+
+Rholang constructions:
+
+Sends:
+x!(P, Q)
+x!!(P, Q)
+
+x(P, Q)
+
+
+Recieves:
+for( x1 <- y1 ){ P } : One-time for
+
+for( x1 <= y1 ){ P } : Persistant for
+contract y1(x1) = { P } : Persistant for
+
+for( x1 <! y1) { P }: recieve then send
+desugars to
+for( @x1 <- y1) {
+  y1!(x1) |
+  P
+}
+
+for( x1 << y1; x2 << y2)
+
+for( x1 <- y1 if x1 > 0){ P } : Input filtering
+
+select {
+  x1 <- y1; x2 <- y2 if x1 > 0 && x2 < 0 => P
+
+  x1 <- y1 if x1 < 0 => Q
+
+  x1 <- y1 => Z
+
+}
+
+
+Matching:
+
+match z!(q) {
+  case x!(y) => Q {z/x, q/y}
+
+  case for(x <- y) => R
+  case _ => D
+}
+
+
+P matches Q
+
+if ( B ) X else y
+
+New names:
+new x, y, z in P
+
+Ground Types:
+Boolean: true, false
+int64: 233, 0, -1
+String: "Hello World"
+Date / Time: DateTime(2018-05-17T23:14:34+00:00)
+
+[P1, P2]: List
+(P1, P2): Tuple
+Set(P1, P2): Set
+
+[P1, P2].getItem(0)
