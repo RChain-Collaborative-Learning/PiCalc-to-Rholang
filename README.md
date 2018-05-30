@@ -1,6 +1,6 @@
 # Collaborative learning sessions
 
-Jake Gillberg organized a collaborative learning group around the pi calculus in April 2018. This repository is for the slides and other materials supporting the study group. The group follows along with Robin Milner's [Polyadic Pi Calculus: A Tutorial ](https://pdfs.semanticscholar.org/5d25/0a3a14f68abb1ae0111d35b8220b4472b277.pdf).
+Jake Gillberg organized a collaborative learning group around the pi calculus in April 2018. This repository is for the slides and other materials supporting the study group.
 
 # Index
 
