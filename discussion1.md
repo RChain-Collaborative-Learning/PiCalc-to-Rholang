@@ -60,24 +60,26 @@ $RP = P[RP]$
 ## Scala Models of Grammars
 $M,N ::= x | \lambda x.M | (M N)$
 
+```scala
 trait M[X]
 
 case class Mention[X]( x : X ) extends M[X]
-
 case class Abstraction[X](x : X, m : M[X] ) extends M[X]
-
 case class Application[X]( m : M[X], n : M[X] )
+```
 
 ## Scala Model of our "simple grammar"
 $X = \lambda x | \triangle x$
 
+```scala
 trait S[X]
 
 case class lambda[X]( x : X ) extends S[X]
-
 case class triangle[X]( x : X ) extends S[X]
+```
 
 ## Scala Model of Pi Calc Grammar
+```scala
 trait P[X]
 
 case class par[X]( p : P[X], q : P[X] ) extends P[X]
@@ -89,6 +91,7 @@ case class input[X]( subject : X, object : X ) extends Pi[X]
 case class output[X]( subject : X, object : X) extends Pi[X]
 
 case class normal[X]( sum : Set[(Pi[X], P[X])] ) extends P[X]
+```
 
 ## Scala Model of Rho Calc Grammar
 given as homework
