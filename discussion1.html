@@ -148,16 +148,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">case</span> <span class="kw">class</span> Mention[X]( x : X ) <span class="kw">extends</span> M[X]</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">case</span> <span class="kw">class</span> Abstraction[X](x : X, m : M[X] ) <span class="kw">extends</span> M[X]</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">case</span> <span class="kw">class</span> Application[X]( m : M[X], n : M[X] )</a></code></pre></div>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">case</span> <span class="kw">class</span> Application[X]( m : M[X], n : M[X] ) <span class="kw">extends</span> M[X]</a></code></pre></div>
 </section><section id="scala-model-of-our-simple-grammar" class="slide level2">
 <h2>Scala Model of our “simple grammar”</h2>
-<p><span class="math inline">\(X = \lambda x | \triangle x\)</span></p>
+<p><span class="math inline">\(X ::= \lambda x | \triangle x\)</span></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">trait</span> S[X]</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">case</span> <span class="kw">class</span> lambda[X]( x : X ) <span class="kw">extends</span> S[X]</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">case</span> <span class="kw">class</span> triangle[X]( x : X ) <span class="kw">extends</span> S[X]</a></code></pre></div>
 </section><section id="scala-model-of-pi-calc-grammar" class="slide level2">
 <h2>Scala Model of Pi Calc Grammar</h2>
+<p><span class="math inline">\(P ::= (P|Q) | !P | (\nu x) P | \sum_{i \in I}\pi_i.P_i\)</span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode scala"><code class="sourceCode scala"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">trait</span> P[X]</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">case</span> <span class="kw">class</span> par[X]( p : P[X], q : P[X] ) <span class="kw">extends</span> P[X]</a>
@@ -187,9 +188,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>module <NAME> … endmodule</p>
 </section><section id="our-first-definition-1" class="slide level2">
 <h2>Our first definition</h2>
-<p>module EXP-SYNTAX imports INT</p>
-<p>syntax Exp ::= Int | Exp “+” Exp | Exp &quot;*&quot; Exp | Exp “/” Exp | “read” | “print” “(” Exp “)” | “(” Exp “)” endmodule</p>
-<p>module EXP imports EXP-SYNTAX endmodule</p>
+<pre class="k"><code>module EXP-SYNTAX
+  imports INT
+
+  syntax Exp ::= Int
+               | Exp &quot;+&quot; Exp
+               | Exp &quot;*&quot; Exp
+               | Exp &quot;/&quot; Exp
+               | &quot;read&quot;
+               | &quot;print&quot; &quot;(&quot; Exp &quot;)&quot;
+               | &quot;(&quot; Exp &quot;)&quot;
+endmodule
+
+module EXP
+  imports EXP-SYNTAX
+endmodule</code></pre>
 </section><section id="pi-calc-syntax-in-k-framework" class="slide level2">
 <h2>Pi Calc Syntax in K-Framework</h2>
 <p>Homework</p>

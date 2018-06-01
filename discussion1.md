@@ -65,11 +65,11 @@ trait M[X]
 
 case class Mention[X]( x : X ) extends M[X]
 case class Abstraction[X](x : X, m : M[X] ) extends M[X]
-case class Application[X]( m : M[X], n : M[X] )
+case class Application[X]( m : M[X], n : M[X] ) extends M[X]
 ```
 
 ## Scala Model of our "simple grammar"
-$X = \lambda x | \triangle x$
+$X ::= \lambda x | \triangle x$
 
 ```scala
 trait S[X]
@@ -79,6 +79,8 @@ case class triangle[X]( x : X ) extends S[X]
 ```
 
 ## Scala Model of Pi Calc Grammar
+$P ::= (P|Q) | !P | (\nu x) P | \sum_{i \in I}\pi_i.P_i$
+
 ```scala
 trait P[X]
 
@@ -117,6 +119,7 @@ module <NAME>
 endmodule
 
 ## Our first definition
+```k
 module EXP-SYNTAX
   imports INT
 
@@ -132,6 +135,7 @@ endmodule
 module EXP
   imports EXP-SYNTAX
 endmodule
+```
 
 ## Pi Calc Syntax in K-Framework
 Homework
