@@ -23,11 +23,11 @@ $M[X] = X + (X \times M[X]) + (M[X] \times M[X])$
 
 . . .
 
-$X = \lambda x | \triangle x$
+$W = \lambda x | \triangle x$
 
 . . .
 
-$M[X] = X + X$
+$W[X] = X + X$
 
 ## Mathematical Model of Pi Calc Grammar
 $P,Q ::= N | (P|Q) | !P | (\nu x)P$
@@ -40,7 +40,11 @@ $\pi ::= x(y) | \overline{x} y$
 
 $P[X] = N[X] + (P[X], X] \times P[X]) + P[X] + (X \times P[X])$
 
-$N[X] = (\pi[X] \times P[X]) + 1 + (N[X] \times N[X])
+. . . 
+
+$N[X] = (\pi[X] \times P[X]) + 1 + (N[X] \times N[X])$
+
+. . .
 
 $\pi[X] = (X \times X) + (X \times X)
 

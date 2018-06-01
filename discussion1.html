@@ -51,10 +51,10 @@
 <p><span class="math inline">\(M,N ::= x | \lambda x.M | (M N)\)</span></p>
 <p><span class="math inline">\(M[X] = X + (X \times M[X]) + (M[X] \times M[X])\)</span></p>
 <div class="fragment">
-<p><span class="math inline">\(X = \lambda x | \triangle x\)</span></p>
+<p><span class="math inline">\(W = \lambda x | \triangle x\)</span></p>
 </div>
 <div class="fragment">
-<p><span class="math inline">\(M[X] = X + X\)</span></p>
+<p><span class="math inline">\(W[X] = X + X\)</span></p>
 </div>
 </section><section id="mathematical-model-of-pi-calc-grammar" class="slide level2">
 <h2>Mathematical Model of Pi Calc Grammar</h2>
@@ -63,7 +63,11 @@
 <p><span class="math inline">\(\pi ::= x(y) | \overline{x} y\)</span></p>
 <div class="fragment">
 <p><span class="math inline">\(P[X] = N[X] + (P[X], X] \times P[X]) + P[X] + (X \times P[X])\)</span></p>
-<p>$N[X] = (P[X]) + 1 + (N[X] N[X])</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(N[X] = (\pi[X] \times P[X]) + 1 + (N[X] \times N[X])\)</span></p>
+</div>
+<div class="fragment">
 <p>$= (X X) + (X X)</p>
 </div>
 </section><section id="mathematical-model-of-rho-calc-grammar" class="slide level2">
