@@ -30,8 +30,5 @@ Some good references for how to use pandoc to make great slides.
 * https://andrewgoldstone.com/blog/2014/12/24/slides/
 * http://pandoc.org/
 
-## Other supported formats
-TODO
-
 # License
 TODO: Choose a license
