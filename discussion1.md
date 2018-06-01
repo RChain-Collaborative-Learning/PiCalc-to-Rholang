@@ -46,7 +46,7 @@ $N[X] = (\pi[X] \times P[X]) + 1 + (N[X] \times N[X])$
 
 . . .
 
-$\pi[X] = (X \times X) + (X \times X)
+$\pi[X] = (X \times X) + (X \times X)$
 
 ## Mathematical Model of RHo Calc Grammar
 $P,Q ::= 0 | for(y \leftarrow x)P | x!(Q) | (P|Q) | *x$
