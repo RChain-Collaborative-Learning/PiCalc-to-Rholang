@@ -32,13 +32,15 @@
     <div class="slides">
 
 
-<section><section id="the-manth-behind-the-curtain-uncovering-the-research-propelling-rchain" class="title-slide slide level1"><h1>The Ma<del>n</del>(th) Behind the Curtain: Uncovering the Research Propelling RChain</h1></section><section id="introductions" class="slide level2">
+<section><section id="section" class="title-slide slide level1"><h1></h1></section><section id="the-manth-behind-the-curtain-uncovering-the-research-propelling-rchain" class="slide level2">
+<h2>The Ma<del>n</del>(th) Behind the Curtain: Uncovering the Research Propelling RChain</h2>
+</section><section id="introductions" class="slide level2">
 <h2>Introductions</h2>
 </section><section id="rchain-collaborative-learning" class="slide level2">
 <h2>RChain Collaborative Learning</h2>
 <p><a href="https://github.com/RChain-Collaborative-Learning/Welcome">github.com/RChain-Collaborative-Learning</a></p>
 </section></section>
-<section><section id="computational-calculus" class="title-slide slide level1"><h1>Computational Calculus</h1></section><section id="section" class="slide level2">
+<section><section id="computational-calculus" class="title-slide slide level1"><h1>Computational Calculus</h1></section><section id="section-1" class="slide level2">
 <h2></h2>
 <ol type="1">
 <li>Grammar</li>
@@ -62,8 +64,8 @@
 <li>Encodes the computation of our language</li>
 </ul>
 </section></section>
-<section><section id="example-calculus" class="title-slide slide level1"><h1>Example Calculus</h1></section><section id="section-1" class="slide level2">
-<h2></h2>
+<section><section id="example-calculus" class="title-slide slide level1"><h1>Example Calculus</h1></section><section id="pi-like-calculus" class="slide level2">
+<h2>Pi-like Calculus</h2>
 <pre><code>P,Q ::= 0
       | for(y &lt;- x){ P }
       | x!(y)
@@ -92,9 +94,23 @@ x,y ::= any variable name</code></pre>
 <div class="fragment">
 <p>for(x &lt;- y) | Q</p>
 </div>
-</section></section>
-<section><section id="equivalences-1" class="title-slide slide level1"><h1>Equivalences</h1></section></section>
-<section><section id="reductions-1" class="title-slide slide level1"><h1>Reductions</h1></section><section id="example-reductions" class="slide level2">
+</section><section id="equivalences-1" class="slide level2">
+<h2>Equivalences</h2>
+<div class="fragment">
+<p>P | 0 = P</p>
+</div>
+<div class="fragment">
+<p>P | Q = Q | P</p>
+</div>
+<div class="fragment">
+<p>(P | Q) | R = P | (Q | R)</p>
+</div>
+</section><section id="reductions-1" class="slide level2">
+<h2>Reductions</h2>
+<div class="fragment">
+<p>x!(z) | for(y &lt;- x){ P } =&gt; P{z/y}</p>
+</div>
+</section><section id="example-reductions" class="slide level2">
 <h2>Example Reductions</h2>
 <p>fred!(hello) | for(message &lt;- fred){ alice!(message) }</p>
 <div class="fragment">
@@ -104,16 +120,36 @@ x,y ::= any variable name</code></pre>
 <p>lottery(alice) | lottery(bob) | for(name &lt;- lottery){ name!(ticket) }</p>
 </div>
 <div class="fragment">
-<p>=&gt; alice!(ticket) | lottery(bob) or bob!(ticket) | lottery(alice)</p>
+<p>=&gt; alice!(ticket) | lottery(bob)</p>
+<p>=&gt; bob!(ticket) | lottery(alice)</p>
 </div>
 </section></section>
-<section><section id="lambda-calculus" class="title-slide slide level1"><h1>Lambda Calculus</h1></section></section>
-<section><section id="rho-calculus" class="title-slide slide level1"><h1>Rho Calculus</h1></section><section id="further-reading" class="slide level2">
+<section><section id="section-2" class="title-slide slide level1"><h1></h1></section><section id="lambda-calculus" class="slide level2">
+<h2>Lambda Calculus</h2>
+<pre><code>M,N ::= x
+        \lambda x.M
+        (M N)
+
+x,y ::= any variable name
+
+(\lambda x.M N) =&gt; M{ N/x }</code></pre>
+</section><section id="rho-calculus" class="slide level2">
+<h2>Rho Calculus</h2>
+<pre><code>P,Q ::= 0
+        for(y &lt;- x){ P }
+        x!(P)
+        *x
+        P | Q
+
+x,y ::= @P
+
+x!(Q) | for(y &lt;- x) { P } =&gt; P{ @Q/y }</code></pre>
+</section><section id="further-reading" class="slide level2">
 <h2>Further Reading</h2>
 <p><a href="http://www.lix.polytechnique.fr/~fvalenci/papers/intro-ppi.pdf">The Polyadic pi-Calculus: a Tutorial</a> <a href="https://ac.els-cdn.com/S1571066105051893/1-s2.0-S1571066105051893-main.pdf?_tid=0ad47d71-eb14-4c7e-b6a2-118d2b26cfc0&amp;acdnat=1536224941_1b9d9e6c392fa8abe04fa2e7b9787bd3">A Reflective Higher-order Calculus</a></p>
 </section></section>
 <section><section id="categorical-semantics" class="title-slide slide level1"><h1>Categorical Semantics</h1></section></section>
-<section><section id="logic-as-a-distributive-law" class="title-slide slide level1"><h1>Logic as a Distributive Law</h1></section><section id="section-2" class="slide level2">
+<section><section id="logic-as-a-distributive-law" class="title-slide slide level1"><h1>Logic as a Distributive Law</h1></section><section id="section-3" class="slide level2">
 <h2></h2>
 <pre><code>N,M ::= 1
       | p
@@ -121,9 +157,9 @@ x,y ::= any variable name</code></pre>
 
 p ::= a prime number</code></pre>
 <div class="fragment">
-<p>1, 2, 3, 2<em>2, 5, 3</em>2, 7, 2<em>2</em>2, …</p>
+<pre><code>1, 2, 3, 2*2, 5, 3*2, 7, 2*2*2, ...</code></pre>
 </div>
-</section><section id="section-3" class="slide level2">
+</section><section id="section-4" class="slide level2">
 <h2></h2>
 <pre><code>A,B ::= 1
       | p
@@ -135,17 +171,16 @@ p ::= a prime number</code></pre>
       | None
 
 p ::= a prime number</code></pre>
-</section><section id="section-4" class="slide level2">
+</section><section id="section-5" class="slide level2">
 <h2></h2>
-<pre><code>[[ All ]]     = {M}
-[[ None ]]    = {}
-[[ Not(A) ]]  = {M} - [[A]]
-[[ A AND B ]] = [[A]] Intersect [[B]]
-[[ A OR B ]]  = [[A]] Union [[B]]
-
-[[ 1 ]]       = { m in {M} | m equiv 1 }
-[[ p ]] = { m in {M} | m equiv the prime number }
-[[ A * B ]]   = { m in {M} | m equiv m1 * m2,
+<pre><code>[[ All ]]     = {M}</code></pre>
+<pre><code>[[ None ]]    = {}</code></pre>
+<pre><code>[[ Not(A) ]]  = {M} - [[A]]</code></pre>
+<pre><code>[[ A AND B ]] = [[A]] Intersect [[B]]</code></pre>
+<pre><code>[[ A OR B ]]  = [[A]] Union [[B]]</code></pre>
+<pre><code>[[ 1 ]]       = { m in {M} | m = 1 }</code></pre>
+<pre><code>[[ p ]] = { m in {M} | m = p }</code></pre>
+<pre><code>[[ A * B ]]   = { m in {M} | m = m1 * m2,
                              m1 in [[A]],
                              m2 in [[B]] }</code></pre>
 </section></section>
