@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>rcon3</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section><section id="the-manth-behind-the-curtain-uncovering-the-research-propelling-rchain" class="title-slide slide level1"><h1>The Ma<del>n</del>(th) Behind the Curtain: Uncovering the Research Propelling RChain</h1></section><section id="introductions" class="slide level2">
+<h2>Introductions</h2>
+</section><section id="rchain-collaborative-learning" class="slide level2">
+<h2>RChain Collaborative Learning</h2>
+<p><a href="https://github.com/RChain-Collaborative-Learning/Welcome">github.com/RChain-Collaborative-Learning</a></p>
+</section></section>
+<section><section id="computational-calculus" class="title-slide slide level1"><h1>Computational Calculus</h1></section><section id="section" class="slide level2">
+<h2></h2>
+<ol type="1">
+<li>Grammar</li>
+<li>Equivalences</li>
+<li>Reductions</li>
+</ol>
+</section><section id="grammar" class="slide level2">
+<h2>Grammar</h2>
+<ul>
+<li>Allows us to answer “Is this a valid program?”</li>
+</ul>
+</section><section id="equivalences" class="slide level2">
+<h2>Equivalences</h2>
+<ul>
+<li>Corrects for the “fine grained” grammar constructions</li>
+<li>“I love pizza and ice cream” = “I love ice cream and pizza”</li>
+</ul>
+</section><section id="reductions" class="slide level2">
+<h2>Reductions</h2>
+<ul>
+<li>Encodes the computation of our language</li>
+</ul>
+</section></section>
+<section><section id="example-calculus" class="title-slide slide level1"><h1>Example Calculus</h1></section><section id="section-1" class="slide level2">
+<h2></h2>
+<pre><code>P,Q ::= 0
+      | for(y &lt;- x){ P }
+      | x!(y)
+      | (P | Q)
+
+x,y ::= any variable name</code></pre>
+</section><section id="valid-terms" class="slide level2">
+<h2>Valid terms</h2>
+<div class="fragment">
+<p>alice!(email)</p>
+</div>
+<div class="fragment">
+<p>0</p>
+</div>
+<div class="fragment">
+<p>alice!(email) | 0</p>
+</div>
+<div class="fragment">
+<p>for(email &lt;- alice){ bob!(email) }</p>
+</div>
+</section><section id="invalid-terms" class="slide level2">
+<h2>Invalid terms:</h2>
+<div class="fragment">
+<p>0 |</p>
+</div>
+<div class="fragment">
+<p>for(x &lt;- y) | Q</p>
+</div>
+</section></section>
+<section><section id="equivalences-1" class="title-slide slide level1"><h1>Equivalences</h1></section></section>
+<section><section id="reductions-1" class="title-slide slide level1"><h1>Reductions</h1></section><section id="example-reductions" class="slide level2">
+<h2>Example Reductions</h2>
+<p>fred!(hello) | for(message &lt;- fred){ alice!(message) }</p>
+<div class="fragment">
+<p>=&gt; alice!(hello)</p>
+</div>
+<div class="fragment">
+<p>lottery(alice) | lottery(bob) | for(name &lt;- lottery){ name!(ticket) }</p>
+</div>
+<div class="fragment">
+<p>=&gt; alice!(ticket) | lottery(bob) or bob!(ticket) | lottery(alice)</p>
+</div>
+</section></section>
+<section><section id="lambda-calculus" class="title-slide slide level1"><h1>Lambda Calculus</h1></section></section>
+<section><section id="rho-calculus" class="title-slide slide level1"><h1>Rho Calculus</h1></section><section id="further-reading" class="slide level2">
+<h2>Further Reading</h2>
+<p><a href="http://www.lix.polytechnique.fr/~fvalenci/papers/intro-ppi.pdf">The Polyadic pi-Calculus: a Tutorial</a> <a href="https://ac.els-cdn.com/S1571066105051893/1-s2.0-S1571066105051893-main.pdf?_tid=0ad47d71-eb14-4c7e-b6a2-118d2b26cfc0&amp;acdnat=1536224941_1b9d9e6c392fa8abe04fa2e7b9787bd3">A Reflective Higher-order Calculus</a></p>
+</section></section>
+<section><section id="categorical-semantics" class="title-slide slide level1"><h1>Categorical Semantics</h1></section></section>
+<section><section id="logic-as-a-distributive-law" class="title-slide slide level1"><h1>Logic as a Distributive Law</h1></section><section id="section-2" class="slide level2">
+<h2></h2>
+<pre><code>N,M ::= 1
+      | p
+      | N * M
+
+p ::= a prime number</code></pre>
+<div class="fragment">
+<p>1, 2, 3, 2<em>2, 5, 3</em>2, 7, 2<em>2</em>2, …</p>
+</div>
+</section><section id="section-3" class="slide level2">
+<h2></h2>
+<pre><code>A,B ::= 1
+      | p
+      | A * B
+      | A OR B
+      | A AND B
+      | NOT( A )
+      | All
+      | None
+
+p ::= a prime number</code></pre>
+</section><section id="section-4" class="slide level2">
+<h2></h2>
+<pre><code>[[ All ]]     = {M}
+[[ None ]]    = {}
+[[ Not(A) ]]  = {M} - [[A]]
+[[ A AND B ]] = [[A]] Intersect [[B]]
+[[ A OR B ]]  = [[A]] Union [[B]]
+
+[[ 1 ]]       = { m in {M} | m equiv 1 }
+[[ p ]] = { m in {M} | m equiv the prime number }
+[[ A * B ]]   = { m in {M} | m equiv m1 * m2,
+                             m1 in [[A]],
+                             m2 in [[B]] }</code></pre>
+</section></section>
+<section><section id="example-types" class="title-slide slide level1"><h1>Example types</h1></section><section id="even-numbers" class="slide level2">
+<h2>Even numbers</h2>
+<p>A * 2</p>
+</section><section id="odd-numbers" class="slide level2">
+<h2>Odd numbers</h2>
+<p>Not(A * 2)</p>
+</section><section id="non-prime-numbers" class="slide level2">
+<h2>Non-prime numbers</h2>
+<p>1 OR (Not(1) * Not(1))</p>
+</section><section id="prime-numbers" class="slide level2">
+<h2>Prime numbers</h2>
+<p>Not( 1 OR (Not(1) * Not(1)) )</p>
+</section><section id="single-threaded-processes" class="slide level2">
+<h2>Single-threaded processes</h2>
+<p>Not( 0 OR (Not(0) | Not(0)) )</p>
+</section><section id="further-reading-1" class="slide level2">
+<h2>Further reading</h2>
+<p><a href="https://arxiv.org/pdf/1610.02247.pdf">Logic as a distributive law</a> <a href="https://arxiv.org/pdf/1112.3076.pdf">Distributive laws for Lawvere theories</a></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
