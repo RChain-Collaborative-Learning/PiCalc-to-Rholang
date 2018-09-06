@@ -1,4 +1,6 @@
-# The Ma~~n~~(th) Behind the Curtain: Uncovering the Research Propelling RChain
+#
+
+## The Ma~~n~~(th) Behind the Curtain: Uncovering the Research Propelling RChain
 
 ## Introductions
 
@@ -25,7 +27,7 @@
 
 # Example Calculus
 
-##
+## Pi-like Calculus
 
 ```
 P,Q ::= 0
@@ -64,7 +66,7 @@ for(email <- alice){ bob!(email) }
 
 for(x <- y) | Q
 
-# Equivalences
+## Equivalences
 
 . . .
 
@@ -78,7 +80,7 @@ P | Q = Q | P
 
 (P | Q) | R = P | (Q | R)
 
-# Reductions
+## Reductions
 
 . . .
 
@@ -100,10 +102,13 @@ lottery(alice) | lottery(bob) | for(name <- lottery){ name!(ticket) }
 
 =>
 alice!(ticket) | lottery(bob)
-or
+
+=>
 bob!(ticket) | lottery(alice)
 
-# Lambda Calculus
+#
+
+## Lambda Calculus
 ```
 M,N ::= x
         \lambda x.M
@@ -114,7 +119,7 @@ x,y ::= any variable name
 (\lambda x.M N) => M{ N/x }
 ```
 
-# Rho Calculus
+## Rho Calculus
 ```
 P,Q ::= 0
         for(y <- x){ P }
@@ -159,7 +164,9 @@ p ::= a prime number
 
 . . .
 
+```
 1, 2, 3, 2*2, 5, 3*2, 7, 2*2*2, ...
+```
 
 ##
 
@@ -180,18 +187,30 @@ p ::= a prime number
 
 ```
 [[ All ]]     = {M}
+```
+```
 [[ None ]]    = {}
+```
+```
 [[ Not(A) ]]  = {M} - [[A]]
+```
+```
 [[ A AND B ]] = [[A]] Intersect [[B]]
+```
+```
 [[ A OR B ]]  = [[A]] Union [[B]]
-
-[[ 1 ]]       = { m in {M} | m equiv 1 }
-[[ p ]] = { m in {M} | m equiv the prime number }
-[[ A * B ]]   = { m in {M} | m equiv m1 * m2,
+```
+```
+[[ 1 ]]       = { m in {M} | m = 1 }
+```
+```
+[[ p ]] = { m in {M} | m = p }
+```
+```
+[[ A * B ]]   = { m in {M} | m = m1 * m2,
                              m1 in [[A]],
                              m2 in [[B]] }
 ```
-
 # Example types
 
 ## Even numbers
