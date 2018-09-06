@@ -2,10 +2,6 @@
 
 ## Introductions
 
-What are the open areas of research?
-
-Important for more people to open up these ideas, for us to be speaking the same language
-
 ## RChain Collaborative Learning
 
 [github.com/RChain-Collaborative-Learning](https://github.com/RChain-Collaborative-Learning/Welcome)
@@ -136,14 +132,10 @@ x!(Q) | for(y <- x) { P } => P{ @Q/y }
 
 # Categorical Semantics
 
-Definition of a Category
-
-Draw a Lawvere Theory for a Monoid
-
-Draw enriched category
+[Higher category models of the pi-calculus](https://arxiv.org/pdf/1504.04311.pdf)
 
 # Logic as a Distributive Law
-Type as defined by the collection of things that satisfy the type
+"Type" is defined by the collection of things that satisfy the type
 
 {apple, fire truck, banana} 
 
@@ -157,14 +149,23 @@ Fruit = Edible
 
 ##
 
+```
 N,M ::= 1
-      | a prime number
+      | p
       | N * M
+
+p ::= a prime number
+```
+
+. . .
 
 1, 2, 3, 2*2, 5, 3*2, 7, 2*2*2, ...
 
+##
+
+```
 A,B ::= 1
-      | a prime number
+      | p
       | A * B
       | A OR B
       | A AND B
@@ -172,6 +173,12 @@ A,B ::= 1
       | All
       | None
 
+p ::= a prime number
+```
+
+##
+
+```
 [[ All ]]     = {M}
 [[ None ]]    = {}
 [[ Not(A) ]]  = {M} - [[A]]
@@ -179,13 +186,29 @@ A,B ::= 1
 [[ A OR B ]]  = [[A]] Union [[B]]
 
 [[ 1 ]]       = { m in {M} | m equiv 1 }
+[[ p ]] = { m in {M} | m equiv the prime number }
 [[ A * B ]]   = { m in {M} | m equiv m1 * m2,
                              m1 in [[A]],
                              m2 in [[B]] }
-[[ a prime number ]] = { m in {M} | m equiv the prime number }
+```
 
-[[ A * 2 ]] = all even numbers
-[[ Not(A * 2) ]] = all odd numbers
+# Example types
 
-[[ Not(Not(1) * Not(1)) AND Not(1) ]] = all prime numbers
-[[ Not(Not(0) | Not(0)) AND Not(0) ]] = all single threaded processes
+## Even numbers
+A * 2
+
+## Odd numbers
+Not(A * 2)
+
+## Non-prime numbers
+1 OR (Not(1) * Not(1))
+
+## Prime numbers
+Not( 1 OR (Not(1) * Not(1)) )
+
+## Single-threaded processes
+Not( 0 OR (Not(0) | Not(0)) )
+
+## Further reading
+[Logic as a distributive law](https://arxiv.org/pdf/1610.02247.pdf)
+[Distributive laws for Lawvere theories](https://arxiv.org/pdf/1112.3076.pdf)
